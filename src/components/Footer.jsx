@@ -5,9 +5,14 @@ export default function Footer() {
                 "sm:flex-row gap-2 sm:items-center sm:justify-between"}>
                     <p>{new Date().getFullYear()} Gibson Nichol</p>
                     <div className={"flex gap-4"}>
-                        <a className={"hover:text-white"} href={"mailto:gibson.nichol@gmail.com"}>Email</a>
-                        <a className={"hover:text-white"} href={"GitHub"}>GitHub</a>
-                        <a className={"hover:text-white"} href={"LinkedIn"}>LinkedIn</a>
+                        <a
+                            href="mailto:gibson.nichol@gmail.com"
+                            className="hover:text-white"
+                            >
+                            Email
+                            </a>
+                        <a className={"hover:text-white"} href={"https://github.com/gnichol479"}>GitHub</a>
+                        <a className={"hover:text-white"} href={"https://www.linkedin.com/in/gibson-nichol-a9a490295/"}>LinkedIn</a>
                     </div>
                 </div>
         </footer>
