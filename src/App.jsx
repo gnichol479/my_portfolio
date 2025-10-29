@@ -17,19 +17,19 @@ function App() {
       <Navbar />
 
       {/* about */}
-      <Section id={"about"} title={"about me"}>
+      <Section id={"about"} title={"About Me"}>
         <div className={"flex flex-col items-center gap-6"}>
           <img
-            src={"/personal.jpg"}
+            src={"/media/unnamed.jpg"}
             alt={"personal"}
             className={"size-40 rounded-2xl object-cover ring-2 ring-neutral-800"}
           />
           <div className={"space-y-4 leading-relaxed text-neutral-300"}>
             <p>
-              Enter some stuff here{" "}
-              <span className={"font-semibold text-white"}>Gibson Nichol</span>
+              Hi, I'm {""}
+              <span className={"font-semibold text-white"}>Gibson Nichol</span>, a Computer Science major at the University of Central Missouri pursuing an accelerated master's degree. I also participate in the UCM Honors College where I am taking Intro to Quantum Computing. I'm passionate about software development, data science, and creating innovative, AI-powered applications that merge creativity and technology.
             </p>
-            <p>I enjoy perforamdjfalskdjfalskfjldfkjalfkja;lfjas;lfkjl</p>
+            <p>  I’ve built projects ranging from <span className="font-semibold text-white">Shadows of the Moon</span>, a Unity-based survival horror game that placed 4th at FBLA State and 7th at Nationals, making me the highest placing team with only one person in the competition, to <span className="font-semibold text-white">FitCheck</span>, an AI fashion app that uses computer vision and AWS Rekognition to grade outfits. I’ve also worked on hackathon projects like<span className="font-semibold text-white"> LearnLinux</span> and{" "}<span className="font-semibold text-white">AgriVision</span>, integrating AI models and real-time feedback systems in both web and mobile environments.</p>
             <div className={"flex gap-3 pt-2 justify-center"}>
               <a
                 href={"#projects"}
