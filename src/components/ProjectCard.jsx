@@ -33,6 +33,18 @@ export default function ProjectCard({ project }) {
           </span>
         ))}
       </div>
+
+      {/* Demo button */}
+      {project.demo && (
+        <a
+          href={project.demo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block rounded-lg bg-white/10 px-4 py-2 text-sm font-medium text-white hover:bg-white/20 transition"
+        >
+          View Demo
+        </a>
+      )}
     </article>
   );
 }
