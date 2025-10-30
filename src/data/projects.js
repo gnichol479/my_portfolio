@@ -26,9 +26,10 @@ export default [
     "A gamified web platform built for Hack Midwest 2025 that teaches Linux through interactive Unity and PyGame mini-games. "
     + "⚠️ This is a demo version: Login, Signup, and the Terminal Typer page are disabled. "
     + "All other pages and UI elements are functional for demonstration purposes only.",
-  image: "/media/learnlinux-thumb.png",
+  image: "/media/Screenshot_2025-10-29_190028.png",
   tags: ["Flutter", "Unity", "AWS Strands", "MongoDB", "Hackathon"],
   demo: "https://learnlinux.vercel.app",
+  repo: "https://github.com/gnichol479/learn-linux-personal/tree/working_branch"
 },
 {
   id: "p3",
