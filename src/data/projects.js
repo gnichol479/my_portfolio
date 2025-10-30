@@ -28,7 +28,7 @@ export default [
     + "All other pages and UI elements are functional for demonstration purposes only.",
   image: "/media/Screenshot_2025-10-29_190028.png",
   tags: ["Flutter", "Unity", "AWS Strands", "MongoDB", "Hackathon"],
-  demo: "learn-linux-personal-git-worki-1b8bb5-gibsons-projects-766be571.vercel.app",
+  demo: "https://learn-linux-personal-git-worki-1b8bb5-gibsons-projects-766be571.vercel.app/",
   repo: "https://github.com/gnichol479/learn-linux-personal/tree/working_branch"
 },
 {
