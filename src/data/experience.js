@@ -1,7 +1,7 @@
 export default [
   {
     id: "e1",
-    role: "Software Development Intern at Oracle",
+    role: "Software Development Intern",
     company: "Oracle",
     location: "Remote",
     start: "Jan 2025",
@@ -15,7 +15,7 @@ export default [
   },
   {
     id: "e2",
-    role: "Data Science Intern at Crosslists Data",
+    role: "Data Science Intern",
     company: "Crosslists Data",
     location: "Remote",
     start: "May 2025",
