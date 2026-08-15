@@ -1,6 +1,2 @@
-@import "tailwindcss";
-
-body, html, #root{
-  margin: 0;
-  padding: 0;
-}
+/* index.css is deprecated — styles are in styles/base.css */
+/* kept for compatibility but intentionally empty */

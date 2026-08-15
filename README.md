@@ -1,16 +1,60 @@
-# React + Vite
+# Gibson Nichol — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository is a production-ready personal portfolio built with React and Vite. The site is designed to present Gibson Nichol as a software engineering internship candidate for Summer 2027.
 
-Currently, two official plugins are available:
+Features
+- Modern, dark-first responsive design
+- Tailwind CSS for utility-first styling
+- Framer Motion for subtle animations
+- Accessible navigation, keyboard focus states, and reduced-motion support
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Quickstart
 
-## React Compiler
+Install dependencies:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+Run development server:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+Project structure
+
+- `index.html` — page metadata, fonts, and structured data
+- `src/` — React source files
+  - `components/` — UI components (Navbar, Hero, Projects, etc.)
+  - `data/` — content (projects, experience, skills)
+  - `App.jsx`, `main.jsx` — app entry
+- `public/` — static assets (place resume here)
+
+Resume and assets
+- Place your resume at `public/Gibson_Nichol_Resume.pdf` to enable the download button.
+- Add high-quality project thumbnails to `public/media/` as needed.
+
+Deployment
+
+This project is compatible with Vercel. Link the repository and use the default Vite build command `npm run build`. Make sure `public/` contains `Gibson_Nichol_Resume.pdf` and any media assets.
+
+Customization
+- Edit content in `src/data/projects.js`, `src/data/experience.js`, and `src/data/skills.js`.
+- Update colors and fonts in `tailwind.config.cjs` and `src/index.css`.
+
+Accessibility & Performance
+- Respect `prefers-reduced-motion` and provide keyboard focus outlines
+- Minimal dependencies and optimized fonts for fast loads

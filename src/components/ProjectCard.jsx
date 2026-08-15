@@ -1,50 +1,29 @@
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, onOpen }) {
   return (
-    <article
-      className={
-        "h-full rounded-2xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition flex flex-col items-center text-center"
-      }
-    >
-      {/* Centered thumbnail */}
-      <div className="w-full flex justify-center items-center">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="max-h-48 w-auto rounded-xl object-contain"
-        />
+    <article className="card project-card">
+      {project.awards?.length ? (
+        <div style={{display:'flex',justifyContent:'flex-end',gap:8,marginBottom:8}}>
+          {project.awards.map((a, i) => (
+            <span key={i} className="award">{a}</span>
+          ))}
+        </div>
+      ) : null}
+
+      <div>
+        <div className="project-category">{project.category}</div>
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-desc">{project.description}</p>
       </div>
 
-      {/* Title */}
-      <h3 className="mt-3 text-lg font-semibold">{project.title}</h3>
-
-      {/* Description */}
-      <p className="mt-1 text-sm text-neutral-300 line-clamp-3">
-        {project.description}
-      </p>
-
-      {/* Tags */}
-      <div className="mt-3 flex flex-wrap justify-center gap-2">
-        {project.tags.map((t) => (
-          <span
-            key={t}
-            className="rounded-md bg-white/10 px-2 py-1 text-xs text-neutral-200"
-          >
-            {t}
-          </span>
-        ))}
+      <div style={{marginTop:16,display:'flex',alignItems:'center',justifyContent:'space-between',gap:12}}>
+        <div className="tag-list">
+          {project.tags?.slice(0,8).map(t=> (
+            <span key={t} className="tag">{t}</span>
+          ))}
+        </div>
+        <button onClick={() => onOpen && onOpen(project)} className="btn-ghost">Details</button>
       </div>
-
-      {/* Demo button */}
-      {project.demo && (
-        <a
-          href={project.demo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-block rounded-lg bg-white/10 px-4 py-2 text-sm font-medium text-white hover:bg-white/20 transition"
-        >
-          View Demo
-        </a>
-      )}
     </article>
-  );
+  )
 }
+ 
