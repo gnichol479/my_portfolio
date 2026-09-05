@@ -1,92 +1,210 @@
-import React from "react";
-
-export default function ProjectModal({ project, onClose }) {
+export default function ProjectModal({
+  project,
+  onClose
+}) {
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-      <div className="relative w-full max-w-4xl mx-4 bg-neutral-900 rounded-2xl p-6 border border-white/10 shadow-lg overflow-hidden">
-        {/* Close button */}
+    <div
+      className="project-modal-overlay"
+      onClick={onClose}
+    >
+      <div
+        className="project-modal"
+        onClick={(event) =>
+          event.stopPropagation()
+        }
+      >
         <button
+          className="project-modal-close"
           onClick={onClose}
-          className="absolute top-3 right-4 text-neutral-400 hover:text-white text-3xl leading-none"
+          aria-label="Close project details"
         >
           ×
         </button>
 
-        {/* Title */}
-        <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-center">
-          {project.title}
-        </h2>
+        <div className="project-modal-header">
+          <p className="project-modal-category">
+            {project.category}
+          </p>
 
-              {/* Category & Awards */}
-              <div className="flex items-center justify-center gap-3 mb-3">
-                <span className="text-sm text-neutral-300">{project.category}</span>
-                {project.awards?.length ? (
-                  <div className="flex gap-2">
-                    {project.awards.map((a, i) => (
-                      <span key={i} className="text-xs bg-gold/10 text-gold px-2 py-1 rounded-full">{a}</span>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
+          <h2>
+            {project.title}
+          </h2>
 
-              {/* Description */}
-              <p className="text-neutral-300 text-center mb-6 max-w-2xl mx-auto">
-                {project.description}
-              </p>
-
-              {/* Ownership / Team */}
-              <div className="max-w-2xl mx-auto text-sm text-neutral-300 mb-4">
-                {project.ownership && <div><strong>My contribution:</strong> {project.ownership}</div>}
-                {project.team && <div className="mt-1"><strong>Team:</strong> {project.team}</div>}
-              </div>
-
-              {/* Case study */}
-              {project.caseStudy && (
-                <div className="max-w-3xl mx-auto text-neutral-300 space-y-3 mb-4">
-                  <h3 className="text-lg font-semibold">Case study</h3>
-                  <div>
-                    <strong>The problem</strong>
-                    <p className="mt-1">{project.caseStudy.problem}</p>
-                  </div>
-                  <div>
-                    <strong>The solution</strong>
-                    <p className="mt-1">{project.caseStudy.solution}</p>
-                  </div>
-                  <div>
-                    <strong>My work</strong>
-                    <p className="mt-1">{project.caseStudy.myWork}</p>
-                  </div>
-                  <div>
-                    <strong>Result</strong>
-                    <p className="mt-1">{project.caseStudy.result}</p>
-                  </div>
-                </div>
-              )}
-
-        {/* Media Container */}
-        <div className="flex flex-col items-center justify-center gap-6 overflow-y-auto max-h-[70vh] px-2">
-          {project.media?.map((m, i) => (
-            <div
-              key={i}
-              className="w-full flex justify-center items-center bg-neutral-800/30 rounded-xl p-2"
-            >
-              {m.type === "image" ? (
-                <img
-                  src={m.src}
-                  alt={`${project.title}-${i}`}
-                  className="max-w-full max-h-[65vh] rounded-lg object-contain"
-                />
-              ) : (
-                <video
-                  src={m.src}
-                  controls
-                  className="max-w-full max-h-[65vh] rounded-lg object-contain"
-                />
+          {project.awards?.length ? (
+            <div className="project-modal-awards">
+              {project.awards.map(
+                (award) => (
+                  <span
+                    key={award}
+                    className="award"
+                  >
+                    {award}
+                  </span>
+                )
               )}
             </div>
-          ))}
+          ) : null}
+        </div>
+
+        <p className="project-modal-description">
+          {project.description}
+        </p>
+
+        <div className="project-modal-meta">
+          {project.ownership && (
+            <p>
+              <strong>
+                My contribution:
+              </strong>{" "}
+              {project.ownership}
+            </p>
+          )}
+
+          {project.team && (
+            <p>
+              <strong>Team:</strong>{" "}
+              {project.team}
+            </p>
+          )}
+
+          {project.verifiedScale && (
+            <p>
+              <strong>Scale:</strong>{" "}
+              {project.verifiedScale}
+            </p>
+          )}
+        </div>
+
+        {project.tags?.length ? (
+          <div className="project-modal-tags">
+            {project.tags.map(
+              (tag) => (
+                <span
+                  key={tag}
+                  className="tag"
+                >
+                  {tag}
+                </span>
+              )
+            )}
+          </div>
+        ) : null}
+
+        {project.caseStudy && (
+          <div className="project-case-study">
+            <h3>Case Study</h3>
+
+            <div>
+              <strong>
+                The Problem
+              </strong>
+
+              <p>
+                {
+                  project.caseStudy
+                    .problem
+                }
+              </p>
+            </div>
+
+            <div>
+              <strong>
+                The Solution
+              </strong>
+
+              <p>
+                {
+                  project.caseStudy
+                    .solution
+                }
+              </p>
+            </div>
+
+            <div>
+              <strong>
+                My Work
+              </strong>
+
+              <p>
+                {
+                  project.caseStudy
+                    .myWork
+                }
+              </p>
+            </div>
+
+            <div>
+              <strong>
+                Result
+              </strong>
+
+              <p>
+                {
+                  project.caseStudy
+                    .result
+                }
+              </p>
+            </div>
+          </div>
+        )}
+
+        {project.media?.length ? (
+          <div className="project-modal-media">
+            {project.media.map(
+              (media, index) => (
+                <div
+                  key={index}
+                  className="project-media-item"
+                >
+                  {media.type ===
+                  "image" ? (
+                    <img
+                      src={media.src}
+                      alt={`${project.title} screenshot ${index + 1}`}
+                    />
+                  ) : (
+                    <video
+                      src={media.src}
+                      controls
+                    />
+                  )}
+                </div>
+              )
+            )}
+          </div>
+        ) : null}
+
+        <div className="project-modal-actions">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary"
+            >
+              Live Demo ↗
+            </a>
+          )}
+
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-ghost"
+            >
+              GitHub ↗
+            </a>
+          )}
+
+          <button
+            className="btn-ghost"
+            onClick={onClose}
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
