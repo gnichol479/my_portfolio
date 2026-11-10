@@ -1,15 +1,5 @@
-export default function Footer(){
+export default function Footer({ data, reduceMotion, onToggleMotion }) {
   return (
-    <footer className="footer">
-      <div className="site-container" style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'20px 0'}}>
-        <div className="text-sm">© {new Date().getFullYear()} Gibson Nichol</div>
-        <div className="footer-links">
-          <a href="mailto:gibson.nichol@gmail.com">Email</a>
-          <a href="https://github.com/gnichol479">GitHub</a>
-          <a href="https://linkedin.com/in/gibson-nichol-a9a490295/">LinkedIn</a>
-        </div>
-      </div>
-    </footer>
+    <footer className="site-footer"><div className="site-container"><span>{data.siteTitle}<span className="brand-period">.</span></span><span className="mono">© {new Date().getFullYear()} {data.name} / Personal portfolio</span><button className="motion-toggle mono" onClick={onToggleMotion} aria-pressed={reduceMotion}>Reduce motion {reduceMotion ? 'on' : 'off'}</button><a className="mono" href="#top">Back to top ↑</a></div></footer>
   )
 }
- 

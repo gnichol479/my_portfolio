@@ -1,15 +1,13 @@
-export default function ContactCTA(){
+export default function ContactCTA({ data }) {
   return (
-    <section id="contact" className="section">
-      <div className="site-container text-center">
-        <h2 className="text-3xl font-semibold">Let’s build something useful.</h2>
-        <p className="mt-2 hero-para">I’m currently looking for Summer 2027 internship opportunities in software engineering, mobile development, data engineering, and applied AI.</p>
-
-        <div className="contact-actions" style={{justifyContent:'center'}}>
-          <a href="mailto:gibson.nichol@gmail.com" className="btn-primary">Email Me</a>
-          <a href="https://linkedin.com/in/gibson-nichol-a9a490295/" className="btn-ghost">View LinkedIn</a>
-          <a href="https://github.com/gnichol479" className="btn-ghost">View GitHub</a>
-        </div>
+    <section id="contact" className="contact-section" aria-labelledby="contact-title">
+      <div className="site-container">
+        <p className="eyebrow">03 / Get in touch</p>
+        <div className="contact-heading"><h2 id="contact-title">{data.contactTitle}</h2>{data.email && <a className="contact-arrow" href={`mailto:${data.email}`} aria-label={`Email ${data.name}`}><span>Get in touch</span><span aria-hidden="true">↗</span></a>}</div>
+        <div className="contact-bottom"><p>{data.contactText}</p><div className="contact-links">
+          {data.email && <a className="contact-email" href={`mailto:${data.email}`}>{data.email}<span aria-hidden="true">↗</span></a>}
+          <div>{data.githubUrl && <a href={data.githubUrl} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>}{data.linkedinUrl && <a href={data.linkedinUrl} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>}{data.resume.available && data.resume.path && <a href={data.resume.path} target="_blank" rel="noreferrer">Résumé <span aria-hidden="true">↗</span></a>}</div>
+        </div></div>
       </div>
     </section>
   )

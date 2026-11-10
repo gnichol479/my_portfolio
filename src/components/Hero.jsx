@@ -1,28 +1,46 @@
-export default function Hero() {
+import ProjectVisual from './ProjectVisual'
+
+export default function Hero({ data, openingProject, projectCount }) {
+  const nameParts = data.name.split(' ')
   return (
-    <section id="about" className="section">
-      <div className="site-container hero-inner">
-        <div>
-          <span className="status-pill">Open to Summer 2027 Internship Opportunities</span>
-          <h1 className="hero-title">Gibson Nichol</h1>
-          <h2 className="hero-headline">Software Developer building mobile apps, intelligent products, and reliable data systems.</h2>
-          <p className="hero-para">I’m a Computer Science student at the University of Central Missouri with software development and data engineering experience at Oracle and Crosslists Data. I build Flutter applications, automated data pipelines, and AI-integrated product features.</p>
-
-          <div className="hero-ctas">
-            <a href="#projects" className="btn-primary">View My Work</a>
+    <section className="hero" id="top" aria-labelledby="hero-title">
+      <div className="site-container">
+        <div className="hero-kicker mono">
+          <p>Software / Systems / Experiments</p>
+          <p className="availability"><span aria-hidden="true" />{data.availability}</p>
+        </div>
+        <h1 className="hero-name" id="hero-title" aria-label={data.name}>
+          {nameParts.map((word, index) => (
+            <span className="name-mask" key={`${word}-${index}`} aria-hidden="true">
+              <span className={index === nameParts.length - 1 ? 'name-accent' : ''}>{word}</span>
+            </span>
+          ))}
+          <span className="name-dot" aria-hidden="true">↗</span>
+        </h1>
+        <div className="hero-content">
+          <div className="hero-statement">
+            <p className="eyebrow">{data.headline}</p>
+            <h2>{data.heroStatement}</h2>
           </div>
-
-          <div className="hero-links">
-            <a href="https://github.com/gnichol479">GitHub</a>
-            <a href="https://linkedin.com/in/gibson-nichol-a9a490295/">LinkedIn</a>
-            <a href="mailto:gibson.nichol@gmail.com">Email Me</a>
+          <div className="hero-intro">
+            <p>{data.intro}</p>
+            <a className="button button-accent" href="#projects">View projects <span aria-hidden="true">↘</span></a>
           </div>
-
-          <div className="hero-highlights">
-            <div className="hero-highlight"><span style={{fontWeight:700}}>2</span>&nbsp;Technical Internships</div>
-            <div className="hero-highlight"><span style={{fontWeight:700}}>3</span>&nbsp;Hackathon Placements</div>
-            <div className="hero-highlight"><span style={{fontWeight:700}}>4.0</span>&nbsp;College GPA</div>
-          </div>
+          {openingProject && (
+            <a className="hero-preview" href="#projects" aria-label={`Explore ${openingProject.title}`}>
+              <div className="hero-preview-frame">
+                <ProjectVisual project={openingProject} number={1} priority />
+                <span className="hero-preview-arrow" aria-hidden="true">↗</span>
+              </div>
+              <span className="mono">Featured project <span>001</span></span>
+              <span className="hero-preview-title">{openingProject.title}</span>
+            </a>
+          )}
+        </div>
+        <div className="hero-bottom mono">
+          <span>A collection of things I’ve built</span>
+          <a href="#projects">Scroll to explore <span aria-hidden="true">↓</span></a>
+          <span>{String(projectCount).padStart(2, '0')} entries & counting</span>
         </div>
       </div>
     </section>
